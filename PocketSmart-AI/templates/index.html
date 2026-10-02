@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PocketSmart AI - Smart Student Budget</title>
+    <style>
+        body { font-family: Arial; max-width: 700px; margin: 30px auto; background: #f5f7ff; padding: 20px; }
+       .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { color: #4F46E5; }
+        input, button { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ddd; }
+        button { background: #4F46E5; color: white; font-weight: bold; cursor: pointer; border: none; }
+       .result { background: #eef2ff; padding: 15px; border-radius: 10px; margin-top: 20px; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>💰 PocketSmart-AI</h1>
+        <p>Upload bill/receipt OR type your expense</p>
+        <form action="/analyze" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*">
+            <input type="text" name="text_input" placeholder="Ex: I spent 500 on Swiggy today">
+            <button type="submit">Analyze My Spending 🧠</button>
+        </form>
+        {% if result %}
+        <div class="result">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
